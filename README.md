@@ -70,10 +70,22 @@ Test installs package, creates config and systemd unit for vector from jinja tem
 So, its too complex to fix it   
 Looks like terraform test env + test ansible apply much easier.  
 
-### Task 4 ###
+### Task 4 ###  
 I just can imagine how to work with asserts.  
-For example:
+Like this:  
+```  
+  tasks:
+    - name: Vector config file stat
+      ansible.builtin.stat:
+        path: /etc/vector/vector.yml
+      register: vector_config
+    - name: Assert something
+      ansible.builtin.assert:
+        that: vector_config.stat
 ```  
 
+### Task 5 ###  
 
-```  
+### Task 6 ###  
+Added tag  
+Pushed repo  
