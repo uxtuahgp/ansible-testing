@@ -1,0 +1,50 @@
+---
+- name: Get vector distrib
+  ansible.builtin.get_url:
+    url: https://setup.vector.dev
+    dest: "./repo.sh"
+
+- name: Install vector repo
+  become: true
+  ansible.builtin.command: /bin/bash ./repo.sh
+
+- name: Install vector
+  become: true
+  ansible.builtin.yum:
+    name:
+      - vector
+
+- name: Create vector config dir
+  become: true
+  ansible.builtin.file:
+    state: directory
+    mode: 750
+    path: /etc/vector
+
+- name: Create config
+  ansible.builtin.template:
+    src: vector.conf.j2
+    dest: /etc/vector/vector.yaml
+    mode: 0644
+    validate: vector validate --no-environment --config-yaml %s
+  become: true
+  notify: Start vector service
+
+- name: Create vector systemd unit
+  ansible.builtin.template:
+    src: vector.service.j2
+    dest: /etc/systemd/system/vector.service
+  become: true
+
+- name: Enable vector service
+  become: true
+  ansible.builtin.service:
+    name: vector
+    enabled: true
+
+- name: Start vector service
+  become: true
+  ansible.builtin.systemd:
+    name: vector
+    state: started
+    daemon_reload: true
