@@ -33,7 +33,7 @@
 - name: Create vector systemd unit
   ansible.builtin.template:
     src: vector.service.j2
-    dest: /etc/systemd/system/vector.service
+    dest: /usr/lib/systemd/system/vector.service
   become: true
 
 - name: Enable vector service

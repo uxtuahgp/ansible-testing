@@ -10,7 +10,7 @@ sinks:
     type: clickhouse
     inputs:
       - local_logs
-    endpoint: http://{{ hostvars['click_host'].ansible_host }}:8123
+    endpoint: http://{{ clickhouse_host }}:8123
     database: "{{ clickhouse_dbname }}"
     table: "{{ clickhouse_tablename }}"
     auth:

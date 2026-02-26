@@ -12,8 +12,8 @@ driver:
   name: docker
 
 platforms:
-  - name: centos8
-    image: docker.io/pycontribs/centos:8
+  - name: fedora
+    image: docker.io/pycontribs/fedora:37
     pre_build_image: true
 
 provisioner:
