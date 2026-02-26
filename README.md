@@ -17,6 +17,7 @@ pip3 install molecule-plugins[docker]
 Pulled aragast image  
 
 ## Molecule ##  
+  
 
 ### Task 1 ###  
 
@@ -71,7 +72,7 @@ ERROR    Molecule executed 1 scenario (1 failed)
 Test installs package, creates config and systemd unit for vector from jinja templates, but fails because there is no systemd inside of pycontribs images.  
 So, its too complex to fix it   
 Looks like terraform test env + test ansible apply much easier.  
-
+  
 ### Task 4 ###  
 I just can imagine how to work with asserts.  
 Like this:  
@@ -87,12 +88,13 @@ Like this:
 ```  
 
 ### Task 5 ###  
-
+  
 ### Task 6 ###  
 Added tag  
 Pushed repo  
 
 ## Tox ##  
+  
 
 ### Task 1 ###  
 Added example files  
