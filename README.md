@@ -20,7 +20,7 @@ Pulled aragast image
 
 ### Task 1 ###  
 
-\```  
+```  
 $ molecule test -s ubuntu_xenial
 CRITICAL 'molecule/ubuntu_xenial/molecule.yml' glob failed.  Exiting.
 ERROR    'molecule/ubuntu_xenial/molecule.yml' glob failed.  Exiting.
